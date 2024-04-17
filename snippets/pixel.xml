@@ -35,7 +35,7 @@
 
   <!-- Framework repos -->
   <project path="frameworks/av" name="android_frameworks_av" remote="feather" />
-  <project path="frameworks/base" name="android_frameworks_base" remote="feather" />
+<!--  <project path="frameworks/base" name="android_frameworks_base" remote="feather" /> -->
   <project path="frameworks/native" name="android_frameworks_native" remote="feather" />
   <project path="frameworks/opt/telephony" name="android_frameworks_opt_telephony" remote="feather" />
   <project path="frameworks/opt/timezonepicker" name="android_frameworks_opt_timezonepicker" remote="feather" />
@@ -101,7 +101,7 @@
   <!-- Packages repos -->
   <project path="packages/apps/Camera2" name="android_packages_apps_Camera2" remote="feather" />
   <project path="packages/apps/Nfc" name="android_packages_apps_Nfc" remote="feather" />
-  <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="feather" />
+  <!-- <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="feather" /> -->
   <project path="packages/modules/adb" name="android_packages_modules_adb" remote="feather" />
   <project path="packages/modules/Bluetooth" name="android_packages_modules_Bluetooth" remote="feather" />
   <project path="packages/modules/Connectivity" name="android_packages_modules_Connectivity" remote="feather" />
