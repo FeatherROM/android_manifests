@@ -1284,7 +1284,5 @@
 
   <!-- Add all PixelExperience repos -->
   <include name="snippets/pixel.xml" />
-  <include name="snippets/pixel-extras.xml" />
-  <include name="snippets/pixel-caf.xml" />
-
+  <include name="snippets/lineage.xml" />
 </manifest>
