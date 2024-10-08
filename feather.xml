@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="feather"
+           fetch="ssh://git@github.com/FeatherROM/"
+           revision="15" />
+
+  <remote  name="feather-gitlab"
+           fetch="ssh://git@gitlab.com/FeatherROM/"
+           revision="15" />
+
+</manifest>
