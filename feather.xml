@@ -1,12 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <remote  name="feather"
-           fetch="ssh://git@github.com/FeatherROM/"
-           revision="15" />
+  <remote name="feather"
+          fetch="ssh://git@github.com/FeatherROM/"
+          revision="15" />
 
-  <remote  name="feather-gitlab"
-           fetch="ssh://git@gitlab.com/FeatherROM/"
-           revision="15" />
+  <remote name="feather-gitlab"
+          fetch="ssh://git@gitlab.com/FeatherROM/"
+          revision="15" />
+
+  <!-- Manifests -->
+  <project path="manifests" name="android_manifests" remote="feather" />
+
+  <!-- Build Projects -->
+  <project path="build/make" name="android_build_make" groups="pdk,sysui-studio" remote="feather">
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+
+  <project path="build/soong" name="android_build_soong" groups="pdk,tradefed" remote="feather">
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- External Libraries -->
+  <project path="external/tinycompress" name="android_external_tinycompress" groups="pdk" remote="feather" />
+  <project path="external/zstd" name="android_external_zstd" remote="feather" groups="pdk" />
+
+  <!-- Frameworks -->
+  <project path="frameworks/av" name="android_frameworks_av" remote="feather" />
+  <project path="frameworks/base" name="android_frameworks_base" remote="feather" />
+  <project path="frameworks/native" name="android_frameworks_native" groups="pdk" remote="feather" />
+
+  <!-- Hardware Projects -->
+  <project path="hardware/interfaces" name="android_hardware_interfaces" groups="pdk,sysui-studio" remote="feather" />
+  <project path="hardware/qcom-caf/common" name="android_hardware_qcom-caf_common" groups="qcom" remote="feather">
+    <linkfile src="os_pickup_aosp.mk" dest="hardware/qcom/Android.mk" />
+    <linkfile src="os_pickup_sepolicy_vndr.mk" dest="device/qcom/sepolicy_vndr/SEPolicy.mk" />
+  </project>
+  <project path="hardware/qcom-caf/sm6225/audio/agm" name="android_hardware_qcom-caf_sm6225_audio_agm" remote="feather" />
+  <project path="hardware/qcom-caf/sm6225/audio/pal" name="android_hardware_qcom-caf_sm6225_audio_pal" remote="feather" />
+  <project path="hardware/qcom-caf/sm6225/audio/primary-hal" name="android_hardware_qcom-caf_sm6225_audio_primary-hal" remote="feather" />
+  <project path="hardware/qcom-caf/sm6225/data-ipa-cfg-mgr" name="android_hardware_qcom-caf_sm6225_data-ipa-cfg-mgr" remote="feather" />
+  <project path="hardware/qcom-caf/sm6225/dataipa" name="android_hardware_qcom-caf_sm6225_dataipa" remote="feather" />
+  <project path="hardware/qcom-caf/sm6225/display" name="android_hardware_qcom-caf_sm6225_display" remote="feather" />
+  <project path="hardware/qcom-caf/sm6225/media" name="android_hardware_qcom-caf_sm6225_media" remote="feather" />
+
+  <!-- Prebuilts -->
+  <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" clone-depth="1" revision="refs/tags/android-14.0.0_r0.76" />
+
+  <!-- Packages -->
+  <project path="packages/apps/ParanoidSense" name="android_packages_apps_ParanoidSense" remote="feather" />
+  <project path="packages/apps/Settings" name="android_packages_apps_Settings" groups="pdk-fs" remote="feather" />
+  <project path="packages/apps/Updates" name="android_packages_apps_Updates" remote="feather" />
+  <project path="packages/modules/Bluetooth" name="android_packages_modules_Bluetooth" groups="pdk" remote="feather" />
+  <project path="packages/modules/Connectivity" name="android_packages_modules_Connectivity" groups="pdk-cw-fs,pdk-fs" remote="feather" />
+  <project path="packages/services/Mms" name="android_packages_services_Mms" groups="pdk-cw-fs,pdk-fs" remote="feather" />
+  <project path="packages/services/Telecomm" name="android_packages_services_Telecomm" groups="pdk-cw-fs,pdk-fs" remote="feather" />
+  <project path="packages/services/Telephony" name="android_packages_services_Telephony" groups="pdk-cw-fs,pdk-fs" remote="feather" />
+
+  <!-- SEPolicy Projects -->
+  <project path="device/feather/sepolicy" name="android_device_feather_sepolicy" remote="feather" />
+  <project path="device/qcom/sepolicy_vndr/sm6225" name="android_device_qcom_sepolicy_vndr_sm6225" remote="feather" />
+  <project path="system/sepolicy" name="android_system_sepolicy" groups="pdk" remote="feather" />
+
+  <!-- System Projects -->
+  <project path="system/core" name="android_system_core" groups="pdk" remote="feather" />
+  <project path="system/security" name="android_system_security" groups="pdk" remote="feather" />
+  <project path="system/update_engine" name="android_system_update_engine" groups="pdk" remote="feather" />
+  <project path="system/vold" name="android_system_vold" groups="pdk" remote="feather" />
+
+  <!-- Vendor Projects -->
+  <project path="vendor/custom-preference" name="android_vendor_custom-preference" remote="feather" />
+  <project path="vendor/extra" name="android_vendor_extra" remote="feather" />
+  <project path="vendor/feather" name="android_vendor_feather" remote="feather" />
+  <project path="vendor/gms" name="android_vendor_gms" remote="feather-gitlab" />
 
 </manifest>
